@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.front')
 
 
 @section('content')
@@ -25,14 +25,8 @@
         <!-- ======= Skills Section ======= -->
         @include('partials.skills')
 
-        <!-- ======= Resume Section ======= -->
-        @include('partials.resume')
-
         <!-- ======= Portfolio Section ======= -->
         @include('partials.portfolio')
-
-        <!-- ======= Services Section ======= -->
-        @include('partials.services')
 
         <!-- ======= Testimonials Section ======= -->
         @include('partials.testimonials')
