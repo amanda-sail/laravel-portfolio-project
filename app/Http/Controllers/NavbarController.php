@@ -3,14 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\Models\Header;
+use App\Models\Navbar;
 use Illuminate\Http\Request;
 
-class HeaderController extends Controller
+class NavbarController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
         $header = Header::all();
-        return view("pages/header/index", compact("header"));
+        $navbar = Navbar::all();
+        return view("pages/back_office/header/index", compact("header", "navbar"));
     }
 
     /**
@@ -20,7 +27,7 @@ class HeaderController extends Controller
      */
     public function create()
     {
-        return view("pages/header/create");
+        //
     }
 
     /**
@@ -37,10 +44,10 @@ class HeaderController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Header  $header
+     * @param  \App\Models\Navbar  $navbar
      * @return \Illuminate\Http\Response
      */
-    public function show(Header $header)
+    public function show(Navbar $navbar)
     {
         //
     }
@@ -48,33 +55,39 @@ class HeaderController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Header  $header
+     * @param  \App\Models\Navbar  $navbar
      * @return \Illuminate\Http\Response
      */
-    public function edit(Header $header)
+    public function edit($id)
     {
-        //
+        $navbar = Navbar::find($id);
+        return view("pages/back_office/navbar/edit", compact("navbar"));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Header  $header
+     * @param  \App\Models\Navbar  $navbar
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Header $header)
+    public function update($id, Request $request)
     {
-        //
+        $nav_link = Navbar::find($id);
+        $nav_link->nav_name = $request->nav_name ?? "";
+        $nav_link->nav_to = $request->nav_to ?? "";
+        $nav_link->nav_icon = $request->nav_icon ?? "";
+        $nav_link->save();
+        return redirect()->route("header.index");
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Header  $header
+     * @param  \App\Models\Navbar  $navbar
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Header $header)
+    public function destroy(Navbar $navbar)
     {
         //
     }

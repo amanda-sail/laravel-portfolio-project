@@ -53,14 +53,21 @@ Route::get('/back_office/backoffice', function() {
 // Header
 Route::get('/back_office/backoffice/header', [HeaderController::class, "index"])->name("header.index");
 Route::get('/back_office/backoffice/header/edit/{id}', [HeaderController::class, "edit"])->name("header.edit");
+Route::get('/back_office/backoffice/header/update/{id}', [HeaderController::class, "update"])->name("header.update");
+
+// Navbar
+Route::get('/back_office/backoffice/navbar/edit/{id}', [NavbarController::class, "edit"])->name("navbar.edit");
+Route::get('/back_office/backoffice/navbar/update/{id}', [NavbarController::class, "update"])->name("navbar.update");
 
 // Hero
 Route::get('/back_office/backoffice/hero', [HeroController::class, "index"])->name("hero.index");
 Route::get('/back_office/backoffice/hero/edit/{id}', [HeroController::class, "edit"])->name("hero.edit");
+Route::get('/back_office/backoffice/hero/update/{id}', [HeroController::class, "update"])->name("hero.update");
 
 // About
 Route::get('/back_office/backoffice/about', [AboutController::class, "index"])->name("about.index");
 Route::get('/back_office/backoffice/about/edit/{id}', [AboutController::class, "edit"])->name("about.edit");
+Route::get('/back_office/backoffice/about/update/{id}', [AboutController::class, "update"])->name("about.update");
 
 // Fact
 Route::get('/back_office/backoffice/fact', [FactController::class, "index"])->name("fact.index");
@@ -104,3 +111,4 @@ Route::get('/back_office/backoffice/contact', [ContactController::class, "index"
 // Footer
 Route::get('/back_office/backoffice/footer', [FooterController::class, "index"])->name("footer.index");
 Route::get('/back_office/backoffice/footer/edit/{id}', [FooterController::class, "edit"])->name("footer.edit");
+Route::get('/back_office/backoffice/footer/update/{id}', [FooterController::class, "update"])->name("footer.update");
