@@ -15,10 +15,10 @@ class HeaderSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('header')->insert([
+        DB::table('headers')->insert([
             'name' => 'Alex Smith',
             'profile_pic' => 'img/profile-img.jpg',
-            'link_to' => 'index.html',
+            'link_to' => '/',
         ]);
     }
 }

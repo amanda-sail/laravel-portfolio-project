@@ -4,7 +4,7 @@
         <div class="profile">
             <img src="{{ asset($header->profile_pic) }}" alt="" class="img-fluid rounded-circle">
             <h1 class="text-light">
-                <a href="{{ asset($header->link_to) }}">{{ asset($header->name) }}</a>
+                <a href="{{ $header->link_to }}">{{ $header->name }}</a>
             </h1>
             <div class="social-links mt-3 text-center">
                 @foreach ($social_media as $social_media_link)
