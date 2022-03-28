@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Header;
 use App\Models\Navbar;
+use App\Models\Social_media;
 use Illuminate\Http\Request;
 
 class NavbarController extends Controller
@@ -17,7 +18,8 @@ class NavbarController extends Controller
     {
         $header = Header::all();
         $navbar = Navbar::all();
-        return view("pages/back_office/header/index", compact("header", "navbar"));
+        $social_media = Social_media::all();
+        return view("pages/header/index", compact("header", "navbar", "social_media"));
     }
 
     /**
@@ -58,9 +60,8 @@ class NavbarController extends Controller
      * @param  \App\Models\Navbar  $navbar
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Navbar $navbar)
     {
-        $navbar = Navbar::find($id);
         return view("pages/back_office/navbar/edit", compact("navbar"));
     }
 
@@ -71,13 +72,12 @@ class NavbarController extends Controller
      * @param  \App\Models\Navbar  $navbar
      * @return \Illuminate\Http\Response
      */
-    public function update($id, Request $request)
+    public function update(Request $request, Navbar $navbar)
     {
-        $nav_link = Navbar::find($id);
-        $nav_link->nav_name = $request->nav_name ?? "";
-        $nav_link->nav_to = $request->nav_to ?? "";
-        $nav_link->nav_icon = $request->nav_icon ?? "";
-        $nav_link->save();
+        $navbar->nav_name = $request->nav_name ?? "";
+        $navbar->nav_to = $request->nav_to ?? "";
+        $navbar->nav_icon = $request->nav_icon ?? "";
+        $navbar->save();
         return redirect()->route("header.index");
     }
 

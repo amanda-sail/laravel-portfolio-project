@@ -7,8 +7,13 @@ use App\Models\Navbar;
 use App\Models\Social_media;
 use Illuminate\Http\Request;
 
-class HeaderController extends Controller
+class SocialMediaController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
         $header = Header::all();
@@ -24,7 +29,7 @@ class HeaderController extends Controller
      */
     public function create()
     {
-        return view("pages/header/create");
+        //
     }
 
     /**
@@ -41,10 +46,10 @@ class HeaderController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Header  $header
+     * @param  \App\Models\Social_media  $social_media
      * @return \Illuminate\Http\Response
      */
-    public function show(Header $header)
+    public function show(Social_media $social_media)
     {
         //
     }
@@ -52,33 +57,37 @@ class HeaderController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Header  $header
+     * @param  \App\Models\Social_media  $social_media
      * @return \Illuminate\Http\Response
      */
-    public function edit(Header $header)
+    public function edit(Social_media $social_media)
     {
-        //
+        return view("pages/back_office/social_media/edit", compact("social_media"));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Header  $header
+     * @param  \App\Models\Social_media  $social_media
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Header $header)
+    public function update(Request $request, Social_media $social_media)
     {
-        //
+        $social_media->nav_name = $request->nav_name;
+        $social_media->nav_to = $request->nav_to;
+        $social_media->nav_icon = $request->nav_icon;
+        $social_media->save();
+        return redirect()->route("header.index");
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Header  $header
+     * @param  \App\Models\Social_media  $social_media
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Header $header)
+    public function destroy(Social_media $social_media)
     {
         //
     }
