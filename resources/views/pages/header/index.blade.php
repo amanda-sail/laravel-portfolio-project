@@ -2,7 +2,7 @@
 
 @section('content')
     <table class="table table-striped table-hover caption-top">
-        <caption>Header Items</caption>
+        <caption>Header Section</caption>
         @if (session()->has('message'))
             <div class="alert alert-success">
                 {{ session()->get('message') }}
@@ -33,7 +33,7 @@
     </table>
 
     <table class="table table-striped table-hover caption-top">
-        <caption>Navbar Items</caption>
+        <caption>Navbar Section</caption>
         <thead>
             <tr>
                 <th>ID</th>
@@ -59,7 +59,7 @@
     </table>
 
     <table class="table table-striped table-hover caption-top">
-        <caption>Social Media Items</caption>
+        <caption>Social Media Section</caption>
         <thead>
             <tr>
                 <th>ID</th>

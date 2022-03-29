@@ -57,7 +57,7 @@ class HeaderController extends Controller
      */
     public function edit(Header $header)
     {
-        //
+        return view("pages/back_office/header/edit", compact("header"));
     }
 
     /**
@@ -69,7 +69,12 @@ class HeaderController extends Controller
      */
     public function update(Request $request, Header $header)
     {
-        //
+        $header->name = $request->name;
+        $request->profile_pic->storePublicly('img', 'public');
+        $header->profile_pic = "storage/img/" . $request->file('profile_pic')->hashName();
+        $header->link_to = $request->link_to;
+        $header->save();
+        return redirect()->route("header.index")->with("message", "The image has been updated.");
     }
 
     /**
