@@ -2,8 +2,9 @@
 
 use App\Http\Controllers\HeaderController;
 use App\Http\Controllers\NavbarController;
-use App\Http\Controllers\Social_mediaController;
+use App\Http\Controllers\SocialMediaController;
 use App\Http\Controllers\HeroController;
+use App\Http\Controllers\SectionIntroController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\FactController;
 use App\Http\Controllers\SkillController;
@@ -13,8 +14,9 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FooterController;
 use App\Models\Header;
 use App\Models\Navbar;
-use App\Models\Social_media;
+use App\Models\SocialMedia;
 use App\Models\Hero;
+use App\Models\SectionIntro;
 use App\Models\About;
 use App\Models\Fact;
 use App\Models\Skill;
@@ -38,8 +40,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     $header = Header::first();
     $navbar = Navbar::all();
-    $social_media = Social_media::all();
+    $social_media = SocialMedia::all();
     $hero = Hero::first();
+    $section = SectionIntro::all();
     $about = About::first();
     $fact = Fact::first();
     $skill = Skill::first();
@@ -47,7 +50,7 @@ Route::get('/', function () {
     $testimonial = Testimonial::first();
     $contact = Contact::first();
     $footer = Footer::first();
-    return view('welcome', compact('header', 'navbar', 'social_media', 'hero', 'about', 'fact', 'skill', 'portfolio', 'testimonial', 'contact', 'footer'));
+    return view('welcome', compact('header', 'navbar', 'social_media', 'hero', 'section', 'about', 'fact', 'skill', 'portfolio', 'testimonial', 'contact', 'footer'));
 });
 
 
@@ -66,13 +69,18 @@ Route::get('/back_office/backoffice/navbar/edit/{id}', [NavbarController::class,
 Route::get('/back_office/backoffice/navbar/update/{id}', [NavbarController::class, "update"])->name("navbar.update");
 
 // Social Media
-Route::get('/back_office/backoffice/social_media/edit/{id}', [Social_mediaController::class, "edit"])->name("social_media.edit");
-Route::get('/back_office/backoffice/social_media/update/{id}', [Social_mediaController::class, "update"])->name("social_media.update");
+Route::get('/back_office/backoffice/social_media/edit/{id}', [SocialMediaController::class, "edit"])->name("social_media.edit");
+Route::get('/back_office/backoffice/social_media/update/{id}', [SocialMediaController::class, "update"])->name("social_media.update");
 
 // Hero
 Route::get('/back_office/backoffice/hero', [HeroController::class, "index"])->name("hero.index");
 Route::get('/back_office/backoffice/hero/edit/{id}', [HeroController::class, "edit"])->name("hero.edit");
 Route::get('/back_office/backoffice/hero/update/{id}', [HeroController::class, "update"])->name("hero.update");
+
+// Section Intros
+Route::get('/back_office/backoffice/section', [SectionIntroController::class, "index"])->name("section.index");
+Route::get('/back_office/backoffice/section/edit/{id}', [SectionIntroController::class, "edit"])->name("section.edit");
+Route::get('/back_office/backoffice/section/update/{id}', [SectionIntroController::class, "update"])->name("section.update");
 
 // About
 Route::get('/back_office/backoffice/about', [AboutController::class, "index"])->name("about.index");

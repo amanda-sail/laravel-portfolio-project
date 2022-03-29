@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\About;
 use App\Models\SectionIntro;
 use Illuminate\Http\Request;
 
-class AboutController extends Controller
+class SectionIntroController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +14,8 @@ class AboutController extends Controller
      */
     public function index()
     {
-        //
+        $section = SectionIntro::all();
+        return view('pages/back_office/section/index', compact('section'));
     }
 
     /**
@@ -42,10 +42,10 @@ class AboutController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\About  $about
+     * @param  \App\Models\SectionIntro  $sectionIntro
      * @return \Illuminate\Http\Response
      */
-    public function show(About $about)
+    public function show(SectionIntro $sectionIntro)
     {
         //
     }
@@ -53,33 +53,36 @@ class AboutController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\About  $about
+     * @param  \App\Models\SectionIntro  $sectionIntro
      * @return \Illuminate\Http\Response
      */
-    public function edit(About $about)
+    public function edit(SectionIntro $sectionIntro)
     {
-        //
+        return view('pages/back_office/section/edit', compact('sectionIntro'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\About  $about
+     * @param  \App\Models\SectionIntro  $sectionIntro
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, About $about)
+    public function update(Request $request, SectionIntro $sectionIntro)
     {
-        //
+        $sectionIntro->header = $request->header;
+        $sectionIntro->description = $request->description;
+        $sectionIntro->save();
+        return redirect()->route("section.index")->with("message", "Your updates have been saved.");
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\About  $about
+     * @param  \App\Models\SectionIntro  $sectionIntro
      * @return \Illuminate\Http\Response
      */
-    public function destroy(About $about)
+    public function destroy(SectionIntro $sectionIntro)
     {
         //
     }

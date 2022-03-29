@@ -24,7 +24,7 @@ class HeaderController extends Controller
      */
     public function create()
     {
-        return view("pages/header/create");
+        //
     }
 
     /**
@@ -74,7 +74,7 @@ class HeaderController extends Controller
         $header->profile_pic = "storage/img/" . $request->file('profile_pic')->hashName();
         $header->link_to = $request->link_to;
         $header->save();
-        return redirect()->route("header.index")->with("message", "The image has been updated.");
+        return redirect()->route("header.index")->with("message", "Your updates have been saved.");
     }
 
     /**

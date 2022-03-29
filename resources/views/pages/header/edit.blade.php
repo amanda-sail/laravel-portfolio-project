@@ -1,4 +1,4 @@
-@extends('layouts.backoffice_layout')
+@extends('layouts/back')
 
 @section('content')
     <form action="{{ route("header.update", $header->id) }}" method="post" enctype="multipart/form-data">

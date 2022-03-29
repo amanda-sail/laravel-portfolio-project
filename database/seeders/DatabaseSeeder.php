@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             NavbarSeeder::class,
             SocialMediaSeeder::class,
             HeroSeeder::class,
+            SectionIntroSeeder::class,
             AboutSeeder::class,
             FactSeeder::class, 
             SkillSeeder::class,
