@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('facts', function (Blueprint $table) {
             $table->id();
+            $table->string('fact_delay')->nullable();
+            $table->string('fact_icon');
+            $table->string('fact_number');
+            $table->string('fact_title');
+            $table->string('fact_desc');
             $table->timestamps();
         });
     }

@@ -57,7 +57,7 @@ class HeaderController extends Controller
      */
     public function edit(Header $header)
     {
-        return view("pages/back_office/header/edit", compact("header"));
+        return view("pages/header/edit", compact("header"));
     }
 
     /**

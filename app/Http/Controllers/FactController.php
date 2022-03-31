@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Facts;
+use App\Models\Fact;
+use App\Models\SectionIntro;
 use Illuminate\Http\Request;
 
 class FactsController extends Controller
@@ -14,7 +15,9 @@ class FactsController extends Controller
      */
     public function index()
     {
-        //
+        $fact = Fact::all();
+        $section = SectionIntro::all();
+        return view('pages/fact/index', compact('fact', 'section'));
     }
 
     /**
@@ -24,7 +27,7 @@ class FactsController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages/fact/create');
     }
 
     /**
@@ -35,51 +38,62 @@ class FactsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $fact = new Fact;
+        $fact->fact_delay = $request->fact_delay;
+        $fact->fact_icon = $request->fact_icon;
+        $fact->fact_number = $request->fact_number;
+        $fact->fact_title = $request->fact_title;
+        $fact->fact_desc = $request->fact_desc;
+        return redirect()->route('fact.index')->with('message', 'Your changes have been saved.');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Facts  $facts
+     * @param  \App\Models\Fact  $fact
      * @return \Illuminate\Http\Response
      */
-    public function show(Facts $facts)
+    public function show(Fact $fact)
     {
-        //
+        return view('pages/fact/show', compact('fact'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Facts  $facts
+     * @param  \App\Models\Fact  $fact
      * @return \Illuminate\Http\Response
      */
-    public function edit(Facts $facts)
+    public function edit(Fact $fact)
     {
-        //
+        return view('pages/fact/edit', compact('fact'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Facts  $facts
+     * @param  \App\Models\Fact  $fact
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Facts $facts)
+    public function update(Request $request, Fact $fact)
     {
-        //
+        $fact->fact_delay = $request->fact_delay;
+        $fact->fact_icon = $request->fact_icon;
+        $fact->fact_number = $request->fact_number;
+        $fact->fact_title = $request->fact_title;
+        $fact->fact_desc = $request->fact_desc;
+        return redirect()->route('fact.index')->with('message', 'Your changes have been saved.');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Facts  $facts
+     * @param  \App\Models\Fact  $fact
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Facts $facts)
+    public function destroy(Fact $fact)
     {
-        //
+        return view('pages/fact/destroy', compact('fact'));
     }
 }
