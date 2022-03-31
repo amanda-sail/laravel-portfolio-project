@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Header;
 use App\Models\Navbar;
-use App\Models\Social_media;
+use App\Models\SocialMedia;
 use Illuminate\Http\Request;
 
 class HeaderController extends Controller
@@ -13,7 +13,7 @@ class HeaderController extends Controller
     {
         $header = Header::first();
         $navbar = Navbar::all();
-        $social_media = Social_media::all();
+        $social_media = SocialMedia::all();
         return view("pages/header/index", compact("header", "navbar", "social_media"));
     }
 

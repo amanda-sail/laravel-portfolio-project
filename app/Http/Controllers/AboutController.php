@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\About;
 use App\Models\SectionIntro;
+use App\Models\Header;
 use Illuminate\Http\Request;
 
 class AboutController extends Controller
@@ -15,7 +16,10 @@ class AboutController extends Controller
      */
     public function index()
     {
-        //
+        $about = About::first();
+        $section = SectionIntro::all();
+        $header = Header::first();
+        return view('pages/about/index', compact('about', 'section', 'header'));
     }
 
     /**
@@ -58,7 +62,7 @@ class AboutController extends Controller
      */
     public function edit(About $about)
     {
-        //
+        return view('pages/back_office/about/edit', compact('about'));
     }
 
     /**
@@ -70,7 +74,11 @@ class AboutController extends Controller
      */
     public function update(Request $request, About $about)
     {
-        //
+        $about->job_title = $request->job_title;
+        $about->job_intro = $request->job_intro;
+        $about->job_desc = $request->job_desc;
+        $about->save();
+        return redirect()->route('about.index')->with('message', 'Your updates have been saved.');
     }
 
     /**
