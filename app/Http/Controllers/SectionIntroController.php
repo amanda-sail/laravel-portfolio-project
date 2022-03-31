@@ -15,7 +15,7 @@ class SectionIntroController extends Controller
     public function index()
     {
         $section = SectionIntro::all();
-        return view('pages/back_office/section/index', compact('section'));
+        return view('pages/back_office/section_intros/index', compact('section'));
     }
 
     /**
@@ -58,7 +58,7 @@ class SectionIntroController extends Controller
      */
     public function edit(SectionIntro $sectionIntro)
     {
-        return view('pages/back_office/section/edit', compact('sectionIntro'));
+        return view('pages/back_office/section_intros/edit', compact('sectionIntro'));
     }
 
     /**
@@ -70,8 +70,8 @@ class SectionIntroController extends Controller
      */
     public function update(Request $request, SectionIntro $sectionIntro)
     {
-        $sectionIntro->header = $request->header;
-        $sectionIntro->description = $request->description;
+        $sectionIntro->section_header = $request->section_header;
+        $sectionIntro->section_desc = $request->section_desc;
         $sectionIntro->save();
         return redirect()->route("section.index")->with("message", "Your updates have been saved.");
     }

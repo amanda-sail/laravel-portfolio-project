@@ -34,6 +34,11 @@
 
     <table class="table table-striped table-hover caption-top">
         <caption>Navbar Section</caption>
+        @if (session()->has('message'))
+            <div class="alert alert-success">
+                {{ session()->get('message') }}
+            </div>
+        @endif
         <thead>
             <tr>
                 <th>ID</th>
@@ -60,6 +65,11 @@
 
     <table class="table table-striped table-hover caption-top">
         <caption>Social Media Section</caption>
+        @if (session()->has('message'))
+            <div class="alert alert-success">
+                {{ session()->get('message') }}
+            </div>
+        @endif
         <thead>
             <tr>
                 <th>ID</th>

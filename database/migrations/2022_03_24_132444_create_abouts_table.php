@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('job_title');
             $table->string('job_intro');
-            $table->string('job_desc');
+            $table->text('job_desc');
             $table->timestamps();
         });
     }
