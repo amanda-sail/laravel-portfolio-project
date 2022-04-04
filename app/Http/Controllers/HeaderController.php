@@ -11,7 +11,7 @@ class HeaderController extends Controller
 {
     public function index()
     {
-        $header = Header::first();
+        $header = Header::all();
         $navbar = Navbar::all();
         $social_media = SocialMedia::all();
         return view("pages/header/index", compact("header", "navbar", "social_media"));

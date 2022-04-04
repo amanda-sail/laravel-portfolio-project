@@ -22,10 +22,10 @@
                 <tr class="align-middle">
                     <th scope="row">{{ $item->id }}</th>
                     <td>{{ $item->name }}</td>
-                    <td><img src="{{ asset($item->profile_pic) }}" alt=""></td>
+                    <td><img src="{{ asset($item->profile_pic) }}" class="back_icon" alt=""></td>
                     <td>{{ $item->link_to }}</td>
                     <td>
-                        <a type="button" class="btn btn-dark" href="/backoffice/header/edit/{{ $item->id }}">Edit</a>
+                        <a type="button" class="btn btn-dark" href="/back_office/backoffice/header/edit/{{ $item->id }}">Edit</a>
                     </td>
                 </tr>
             @endforeach
@@ -56,7 +56,7 @@
                     <td>{{ $item->nav_to }}</td>
                     <td><img src="{{ asset($item->nav_icon) }}" alt=""></td>
                     <td>
-                        <a class="btn btn-dark" href="/backoffice/navbar/edit/{{ $item->id }}">Edit</a>
+                        <a class="btn btn-dark" href="/back_office/backoffice/navbar/edit/{{ $item->id }}">Edit</a>
                     </td>
                 </tr>
             @endforeach
@@ -87,7 +87,7 @@
                     <td><img src="{{ asset($item->media_icon) }}" alt=""></td>
                     <td>{{ $item->media_link }}</td>
                     <td>
-                        <a class="btn btn-dark" href="/backoffice/social_media/edit/{{ $item->id }}">Edit</a>
+                        <a class="btn btn-dark" href="/back_office/backoffice/social_media/edit/{{ $item->id }}">Edit</a>
                     </td>
                 </tr>
             @endforeach
