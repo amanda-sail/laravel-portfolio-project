@@ -78,7 +78,7 @@ class NavbarController extends Controller
         $navbar->nav_to = $request->nav_to ?? "";
         $navbar->nav_icon = $request->nav_icon ?? "";
         $navbar->save();
-        return redirect()->route("header.index");
+        return redirect()->route("header.index")->with("message", "Your changes have been saved.");
     }
 
     /**

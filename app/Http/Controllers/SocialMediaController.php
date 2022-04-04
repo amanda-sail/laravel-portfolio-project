@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Header;
 use App\Models\Navbar;
-use App\Models\Social_media;
+use App\Models\SocialMedia;
 use Illuminate\Http\Request;
 
 class SocialMediaController extends Controller
@@ -18,7 +18,7 @@ class SocialMediaController extends Controller
     {
         $header = Header::all();
         $navbar = Navbar::all();
-        $social_media = Social_media::all();
+        $social_media = SocialMedia::all();
         return view("pages/header/index", compact("header", "navbar", "social_media"));
     }
 
@@ -46,10 +46,10 @@ class SocialMediaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Social_media  $social_media
+     * @param  \App\Models\SocialMedia  $social_media
      * @return \Illuminate\Http\Response
      */
-    public function show(Social_media $social_media)
+    public function show(SocialMedia $social_media)
     {
         //
     }
@@ -60,7 +60,7 @@ class SocialMediaController extends Controller
      * @param  \App\Models\Social_media  $social_media
      * @return \Illuminate\Http\Response
      */
-    public function edit(Social_media $social_media)
+    public function edit(SocialMedia $social_media)
     {
         return view("pages/back_office/social_media/edit", compact("social_media"));
     }
@@ -72,22 +72,22 @@ class SocialMediaController extends Controller
      * @param  \App\Models\Social_media  $social_media
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Social_media $social_media)
+    public function update(Request $request, SocialMedia $social_media)
     {
-        $social_media->nav_name = $request->nav_name;
-        $social_media->nav_to = $request->nav_to;
-        $social_media->nav_icon = $request->nav_icon;
+        $social_media->media_class = $request->media_class;
+        $social_media->media_link = $request->media_link;
+        $social_media->media_icon = $request->media_icon;
         $social_media->save();
-        return redirect()->route("header.index");
+        return redirect()->route("header.index")->with("message", "Your changes have been saved.");
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Social_media  $social_media
+     * @param  \App\Models\SocialMedia  $social_media
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Social_media $social_media)
+    public function destroy(SocialMedia $social_media)
     {
         //
     }

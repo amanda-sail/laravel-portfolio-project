@@ -1,7 +1,7 @@
 @extends('layouts/back')
 
 @section('content')
-    <form action="{{ route("navbar.update", $navbar) }}" method="post">
+    <form action="{{ route("navbar.update", $navbar->id) }}" method="post">
         @csrf
         <div class="mb-3">
             <label for="nav_name" class="form-label">Page/Section Name</label>

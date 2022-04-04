@@ -1,7 +1,7 @@
 @extends('layouts/back')
 
 @section('content')
-    <form action="{{ route("social_media.update", $social_media) }}" method="post">
+    <form action="{{ route("social_media.update", $social_media->id) }}" method="post">
         @csrf
         <div class="mb-3">
             <label for="media_class" class="form-label">Page/Section Name</label>

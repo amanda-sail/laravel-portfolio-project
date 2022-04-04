@@ -12,7 +12,7 @@
             <input type="file" class="form-control" id="profile_pic" name="profile_pic" value="{{ $header->profile_pic }}">
         </div>
         <div class="mb-3">
-            <label for="link_to" class="form-label">Profile Links: To:</label>
+            <label for="link_to" class="form-label">Profile Links To:</label>
             <input type="text" class="form-control" id="link_to" aria-describedby="link_to" name="link_to" value="{{ $header->link_to }}">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
