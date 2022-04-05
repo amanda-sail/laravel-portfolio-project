@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Header;
 use App\Models\Hero;
+use App\Models\SectionIntro;
 use Illuminate\Http\Request;
 
 class HeroController extends Controller
@@ -17,7 +18,8 @@ class HeroController extends Controller
     {
         $header = Header::first();
         $hero = Hero::first();
-        return view("pages/hero/index", compact("header", "hero"))->with("message", "This section has been updated.");
+        $sectionIntro = SectionIntro::all();
+        return view("pages/hero/index", compact("header", "hero", "sectionIntro"))->with("message", "This section has been updated.");
     }
 
     /**
@@ -60,7 +62,8 @@ class HeroController extends Controller
      */
     public function edit(Hero $hero)
     {
-        return view("pages/back_office/hero/edit", compact("hero"));
+        $header = Header::first();
+        return view("pages/hero/edit", compact("hero", "header"));
     }
 
     /**
@@ -72,8 +75,13 @@ class HeroController extends Controller
      */
     public function update(Request $request, Hero $hero)
     {
+        $validated = $request->validate([
+            'name' => 'required|max:255',
+            'job_titles' => 'required',
+        ]);
         $hero->job_titles = $request->job_titles;
-        return redirect()->route("hero.index");
+        $hero->save();
+        return redirect()->route("hero.index")->with("message", "Your changes have been saved.");
     }
 
     /**

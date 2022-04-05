@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Hero;
 use App\Models\SectionIntro;
 use Illuminate\Http\Request;
 
@@ -14,8 +15,9 @@ class SectionIntroController extends Controller
      */
     public function index()
     {
+        $hero = Hero::first();
         $section = SectionIntro::all();
-        return view('pages/back_office/section_intros/index', compact('section'));
+        return view('pages/back_office/section_intros/index', compact('hero', 'section'));
     }
 
     /**
@@ -73,7 +75,7 @@ class SectionIntroController extends Controller
         $sectionIntro->section_header = $request->section_header;
         $sectionIntro->section_desc = $request->section_desc;
         $sectionIntro->save();
-        return redirect()->route("section.index")->with("message", "Your updates have been saved.");
+        return redirect()->route("hero.index")->with("message", "Your updates have been saved.");
     }
 
     /**

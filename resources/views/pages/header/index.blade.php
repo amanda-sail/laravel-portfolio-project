@@ -1,13 +1,14 @@
 @extends('layouts/back')
 
 @section('content')
+    @if (session()->has('message'))
+        <div class="alert alert-success">
+            {{ session()->get('message') }}
+        </div>
+    @endif
+{{-- Header --}}
     <table class="table table-striped table-hover caption-top">
         <caption>Header Section</caption>
-        @if (session()->has('message'))
-            <div class="alert alert-success">
-                {{ session()->get('message') }}
-            </div>
-        @endif
         <thead>
             <tr class="align-middle">
                 <th>ID</th>
@@ -25,13 +26,13 @@
                     <td><img src="{{ asset($item->profile_pic) }}" class="back_icon" alt=""></td>
                     <td>{{ $item->link_to }}</td>
                     <td>
-                        <a type="button" class="btn btn-dark" href="{{ route("header.edit", $item->id) }}">Edit</a>
+                        <a type="button" class="btn btn-dark" href="{{ route('header.edit', $item->id) }}">Edit</a>
                     </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
-
+{{-- Navbar --}}
     <table class="table table-striped table-hover caption-top">
         <caption>Navbar Section</caption>
         <thead>
@@ -51,13 +52,13 @@
                     <td>{{ $item->nav_to }}</td>
                     <td><i class="{{ $item->nav_icon }}"></i></td>
                     <td>
-                        <a class="btn btn-dark" href="{{ route("navbar.edit", $item->id) }}">Edit</a>
+                        <a class="btn btn-dark" href="{{ route('navbar.edit', $item->id) }}">Edit</a>
                     </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
-
+{{-- Social Media --}}
     <table class="table table-striped table-hover caption-top">
         <caption>Social Media Section</caption>
         <thead>
@@ -77,7 +78,7 @@
                     <td>{{ $item->media_link }}</td>
                     <td><i class="{{ $item->media_icon }}"></i></td>
                     <td>
-                        <a class="btn btn-dark" href="{{ route("social_media.edit", $item->id) }}">Edit</a>
+                        <a class="btn btn-dark" href="{{ route('social_media.edit', $item->id) }}">Edit</a>
                     </td>
                 </tr>
             @endforeach

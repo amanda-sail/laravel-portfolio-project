@@ -74,59 +74,59 @@ Route::post('/back_office/backoffice/social_media/update/{social_media}', [Socia
 
 // Hero
 Route::get('/back_office/backoffice/hero', [HeroController::class, "index"])->name("hero.index");
-Route::get('/back_office/backoffice/hero/edit/{id}', [HeroController::class, "edit"])->name("hero.edit");
-Route::post('/back_office/backoffice/hero/update/{id}', [HeroController::class, "update"])->name("hero.update");
+Route::get('/back_office/backoffice/hero/edit/{hero}', [HeroController::class, "edit"])->name("hero.edit");
+Route::post('/back_office/backoffice/hero/update/{hero}', [HeroController::class, "update"])->name("hero.update");
 
 // Section Intros
-Route::get('/back_office/backoffice/section', [SectionIntroController::class, "index"])->name("section.index");
-Route::get('/back_office/backoffice/section/edit/{id}', [SectionIntroController::class, "edit"])->name("section.edit");
-Route::post('/back_office/backoffice/section/update/{id}', [SectionIntroController::class, "update"])->name("section.update");
+// Route::get('/back_office/backoffice/section', [SectionIntroController::class, "index"])->name("section.index");
+Route::get('/back_office/backoffice/section/edit/{sectionIntro}', [SectionIntroController::class, "edit"])->name("section.edit");
+Route::post('/back_office/backoffice/section/update/{sectionIntro}', [SectionIntroController::class, "update"])->name("section.update");
 
 // About
 Route::get('/back_office/backoffice/about', [AboutController::class, "index"])->name("about.index");
-Route::get('/back_office/backoffice/about/edit/{id}', [AboutController::class, "edit"])->name("about.edit");
-Route::post('/back_office/backoffice/about/update/{id}', [AboutController::class, "update"])->name("about.update");
+Route::get('/back_office/backoffice/about/edit/{about}', [AboutController::class, "edit"])->name("about.edit");
+Route::post('/back_office/backoffice/about/update/{about}', [AboutController::class, "update"])->name("about.update");
 
 // Fact
 Route::get('/back_office/backoffice/fact', [FactController::class, "index"])->name("fact.index");
-Route::get('/back_office/backoffice/fact/edit/{id}', [FactController::class, "edit"])->name("fact.edit");
-Route::post('/back_office/backoffice/fact/update/{id}', [FactController::class, "update"])->name("fact.update");
+Route::get('/back_office/backoffice/fact/edit/{fact}', [FactController::class, "edit"])->name("fact.edit");
+Route::post('/back_office/backoffice/fact/update/{fact}', [FactController::class, "update"])->name("fact.update");
 Route::get('/back_office/backoffice/fact/create', [FactController::class, "create"])->name("fact.create");
 Route::post('/back_office/backoffice/fact/store', [FactController::class, "store"])->name("fact.store");
-Route::get('/back_office/backoffice/fact/destroy/{id}', [FactController::class, "destroy"])->name("fact.destroy");
-Route::get('/back_office/backoffice/fact/show/{id}', [FactController::class, "show"])->name("fact.show");
+Route::get('/back_office/backoffice/fact/destroy/{fact}', [FactController::class, "destroy"])->name("fact.destroy");
+Route::get('/back_office/backoffice/fact/show/{fact}', [FactController::class, "show"])->name("fact.show");
 
 // Skill
 Route::get('/back_office/backoffice/skill', [SkillController::class, "index"])->name("skill.index");
-Route::get('/back_office/backoffice/skill/edit/{id}', [SkillController::class, "edit"])->name("skill.edit");
-Route::post('/back_office/backoffice/skill/update/{id}', [SkillController::class, "update"])->name("skill.update");
+Route::get('/back_office/backoffice/skill/edit/{skill}', [SkillController::class, "edit"])->name("skill.edit");
+Route::post('/back_office/backoffice/skill/update/{skill}', [SkillController::class, "update"])->name("skill.update");
 Route::get('/back_office/backoffice/skill/create', [SkillController::class, "create"])->name("skill.create");
 Route::post('/back_office/backoffice/skill/store', [SkillController::class, "store"])->name("skill.store");
-Route::get('/back_office/backoffice/skill/destroy/{id}', [SkillController::class, "destroy"])->name("skill.destroy");
-Route::get('/back_office/backoffice/skill/show/{id}', [SkillController::class, "show"])->name("skill.show");
+Route::get('/back_office/backoffice/skill/destroy/{skill}', [SkillController::class, "destroy"])->name("skill.destroy");
+Route::get('/back_office/backoffice/skill/show/{skill}', [SkillController::class, "show"])->name("skill.show");
 
 // Portfolio
 Route::get('/back_office/backoffice/portfolio', [PortfolioController::class, "index"])->name("portfolio.index");
-Route::get('/back_office/backoffice/portfolio/edit/{id}', [PortfolioController::class, "edit"])->name("portfolio.edit");
-Route::post('/back_office/backoffice/portfolio/update/{id}', [PortfolioController::class, "update"])->name("portfolio.update");
+Route::get('/back_office/backoffice/portfolio/edit/{portfolio}', [PortfolioController::class, "edit"])->name("portfolio.edit");
+Route::post('/back_office/backoffice/portfolio/update/{portfolio}', [PortfolioController::class, "update"])->name("portfolio.update");
 Route::get('/back_office/backoffice/portfolio/create', [PortfolioController::class, "create"])->name("portfolio.create");
 Route::post('/back_office/backoffice/portfolio/store', [PortfolioController::class, "store"])->name("portfolio.store");
-Route::get('/back_office/backoffice/portfolio/destroy/{id}', [PortfolioController::class, "destroy"])->name("portfolio.destroy");
-Route::get('/back_office/backoffice/portfolio/show/{id}', [PortfolioController::class, "show"])->name("portfolio.show");
+Route::get('/back_office/backoffice/portfolio/destroy/{portfolio}', [PortfolioController::class, "destroy"])->name("portfolio.destroy");
+Route::get('/back_office/backoffice/portfolio/show/{portfolio}', [PortfolioController::class, "show"])->name("portfolio.show");
 
 // Testimonial
 Route::get('/back_office/backoffice/testimonial', [TestimonialController::class, "index"])->name("testimonial.index");
-Route::get('/back_office/backoffice/testimonial/edit/{id}', [TestimonialController::class, "edit"])->name("testimonial.edit");
-Route::post('/back_office/backoffice/testimonial/update/{id}', [TestimonialController::class, "update"])->name("testimonial.update");
+Route::get('/back_office/backoffice/testimonial/edit/{testimonial}', [TestimonialController::class, "edit"])->name("testimonial.edit");
+Route::post('/back_office/backoffice/testimonial/update/{testimonial}', [TestimonialController::class, "update"])->name("testimonial.update");
 Route::get('/back_office/backoffice/testimonial/create', [TestimonialController::class, "create"])->name("testimonial.create");
 Route::post('/back_office/backoffice/testimonial/store', [TestimonialController::class, "store"])->name("testimonial.store");
-Route::get('/back_office/backoffice/testimonial/destroy/{id}', [TestimonialController::class, "destroy"])->name("testimonial.destroy");
-Route::get('/back_office/backoffice/testimonial/show/{id}', [TestimonialController::class, "show"])->name("testimonial.show");
+Route::get('/back_office/backoffice/testimonial/destroy/{testimonial}', [TestimonialController::class, "destroy"])->name("testimonial.destroy");
+Route::get('/back_office/backoffice/testimonial/show/{testimonial}', [TestimonialController::class, "show"])->name("testimonial.show");
 
 // Contact
 Route::get('/back_office/backoffice/contact', [ContactController::class, "index"])->name("contact.index");
 
 // Footer
 Route::get('/back_office/backoffice/footer', [FooterController::class, "index"])->name("footer.index");
-Route::get('/back_office/backoffice/footer/edit/{id}', [FooterController::class, "edit"])->name("footer.edit");
-Route::post('/back_office/backoffice/footer/update/{id}', [FooterController::class, "update"])->name("footer.update");
+Route::get('/back_office/backoffice/footer/edit/{footer}', [FooterController::class, "edit"])->name("footer.edit");
+Route::post('/back_office/backoffice/footer/update/{footer}', [FooterController::class, "update"])->name("footer.update");

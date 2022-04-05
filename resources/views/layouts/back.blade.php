@@ -41,49 +41,49 @@
             </li>
             <li>
                 <a href="/back_office/backoffice/hero">
-                    <i class='bx bx-home-alt' ></i>
+                    <i class='bx bx-home' ></i>
                     <span class="links_name">Hero</span>
                 </a>
                 <span class="tooltip">Hero</span>
             </li>
             <li>
                 <a href="/back_office/backoffice/about">
-                    <i class='bx bx-pie-chart-alt-2'></i>
+                    <i class='bx bx-user'></i>
                     <span class="links_name">About</span>
                 </a>
                 <span class="tooltip">About</span>
             </li>
             <li>
                 <a href="/back_office/backoffice/fact">
-                    <i class='bx bx-user' ></i>
+                    <i class='bx bx-pie-chart-alt-2' ></i>
                     <span class="links_name">Facts</span>
                 </a>
                 <span class="tooltip">Facts</span>
             </li>
             <li>
                 <a href="/back_office/backoffice/skill">
-                    <i class='bx bx-laptop'></i>
+                    <i class='bx bx-file-blank'></i>
                     <span class="links_name">Skill</span>
                 </a>
                 <span class="tooltip">Skill</span>
             </li>
             <li>
                 <a href="/back_office/backoffice/portfolio">
-                    <i class='bx bx-grid-alt'></i>
+                    <i class='bx bx-book-content'></i>
                     <span class="links_name">Portfolio</span>
                 </a>
                 <span class="tooltip">Portfolio</span>
             </li>
             <li>
                 <a href="/back_office/backoffice/testimonial">
-                    <i class='bx bx-chat' ></i>
+                    <i class='bx bx-server' ></i>
                     <span class="links_name">Testimonials</span>
                 </a>
                 <span class="tooltip">Testimonials</span>
             </li>
             <li>
                 <a href="/back_office/backoffice/contact">
-                    <i class='bx bx-chat' ></i>
+                    <i class='bx bx-envelope' ></i>
                     <span class="links_name">Contact</span>
                 </a>
                 <span class="tooltip">Contact</span>
