@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('footers', function (Blueprint $table) {
             $table->id();
+            $table->string('copyright');
             $table->timestamps();
         });
     }
