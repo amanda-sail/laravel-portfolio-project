@@ -28,7 +28,7 @@ class WelcomeController extends Controller
         $about = About::first();
         $facts = Fact::all();
         $skills = Skill::all();
-        $portfolio = Portfolio::first();
+        $portfolio = Portfolio::all();
         $testimonial = Testimonial::first();
         $contact = Contact::first();
         $footer = Footer::first();
