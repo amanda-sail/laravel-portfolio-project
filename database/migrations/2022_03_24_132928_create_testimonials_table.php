@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('testimonials', function (Blueprint $table) {
             $table->id();
+            $table->string('delay')->nullable();
+            $table->string('comment');
+            $table->string('image');
+            $table->string('commenter');
+            $table->string('job');
             $table->timestamps();
         });
     }

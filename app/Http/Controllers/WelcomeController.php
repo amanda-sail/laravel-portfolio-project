@@ -29,10 +29,10 @@ class WelcomeController extends Controller
         $facts = Fact::all();
         $skills = Skill::all();
         $portfolio = Portfolio::all();
-        $testimonial = Testimonial::first();
+        $testimonials = Testimonial::all();
         $contact = Contact::first();
         $footer = Footer::first();
 
-        return view('welcome', compact('header', 'navbar', 'social_media', 'hero', 'section', 'about', 'facts', 'skills', 'portfolio', 'testimonial', 'contact', 'footer'));
+        return view('welcome', compact('header', 'navbar', 'social_media', 'hero', 'section', 'about', 'facts', 'skills', 'portfolio', 'testimonials', 'contact', 'footer'));
     }
 }
