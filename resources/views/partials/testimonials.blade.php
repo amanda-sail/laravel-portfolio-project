@@ -2,8 +2,8 @@
     <div class="container">
 
         <div class="section-title">
-            <h2>{{ $section->section_header }}</h2>
-            <p>{{ $section->section_desc }}</p>
+            <h2>{{ $section[4]->section_header }}</h2>
+            <p>{{ $section[4]->section_desc }}</p>
         </div>
 
         <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">

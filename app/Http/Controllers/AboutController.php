@@ -16,7 +16,7 @@ class AboutController extends Controller
      */
     public function index()
     {
-        $about = About::first();
+        $about = About::all();
         $section = SectionIntro::all();
         $header = Header::first();
         return view('pages/about/index', compact('about', 'section', 'header'));

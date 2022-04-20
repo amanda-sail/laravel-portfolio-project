@@ -2,8 +2,8 @@
     <div class="container">
 
         <div class="section-title">
-            <h2>{{ $section->section_header }}</h2>
-            <p>{{ $section->section_desc }}</p>
+            <h2>{{ $section[2]->section_header }}</h2>
+            <p>{{ $section[2]->section_desc }}</p>
         </div>
 
         <div class="row skills-content">
@@ -11,10 +11,12 @@
             <div class="col-lg-6" data-aos="fade-up">
 
                 <div class="progress">
-                    <span class="skill">{{ $skill->skill }} <i class="val">{{ $skill->skill_rating }}%</i></span>
-                    <div class="progress-bar-wrap">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="{{ $skill->skill_rating }}" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
+                    @foreach ($skills as $skill)
+                        <span class="skill">{{ $skill->skill }} <i class="val">{{ $skill->skill_rating }}%</i></span>
+                        <div class="progress-bar-wrap">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="{{ $skill->skill_rating }}" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    @endforeach
                 </div>
 
                 <div class="progress">

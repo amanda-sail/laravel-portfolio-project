@@ -2,8 +2,8 @@
     <div class="container">
 
         <div class="section-title">
-            <h2>{{ $section->section_header }}</h2>
-            <p>{{ $section->section_desc }}</p>
+            <h2>{{ $section[0]->section_header }}</h2>
+            <p>{{ $section[0]->section_desc }}</p>
         </div>
 
         <div class="row">

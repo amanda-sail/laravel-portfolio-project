@@ -1,13 +1,14 @@
 @extends('layouts/back')
 
 @section('content')
+    @if (session()->has('message'))
+        <div class="alert alert-success">
+            {{ session()->get('message') }}
+        </div>
+    @endif
+
     <table class="table table-striped table-hover caption-top">
-        <caption>About Section Intro</caption>
-        @if (session()->has('message'))
-            <div class="alert alert-success">
-                {{ session()->get('message') }}
-            </div>
-        @endif
+        <caption>Header and Description</caption>
         <thead>
             <tr>
                 <th>ID</th>
@@ -17,13 +18,13 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($section as $item)
+            @foreach ($sectionIntro as $item)
                 <tr>
                     <th scope="row">{{ $item->id }}</th>
                     <td>{{ $item->section_header }}</td>
                     <td>{{ $item->section_desc }}</td>
                     <td>
-                        <a class="btn btn-dark" href="/backoffice/section/edit/{{ $item->id }}">Edit</a>
+                        <a class="btn btn-dark" href="{{ route('section.edit',$item->id) }}">Edit</a>
                     </td>
                 </tr>
             @endforeach
@@ -32,11 +33,6 @@
 
     <table class="table table-striped table-hover caption-top">
         <caption>About Section</caption>
-        @if (session()->has('message'))
-            <div class="alert alert-success">
-                {{ session()->get('message') }}
-            </div>
-        @endif
         <thead>
             <tr class="align-middle">
                 <th>ID</th>
@@ -47,18 +43,19 @@
             </tr>
         </thead>
         <tbody>
+            
+            <td>{{ $header[$key]->profile_pic }}</td>
             @foreach ($about as $key => $item)
                 <tr class="align-middle">
                     <th scope="row">{{ $item->id }}</th>
-                    <td>{{ $header[$key]->profile_pic }}</td>
                     <td>{{ $item->job_title }}</td>
                     <td>{{ $item->job_intro }}</td>
                     <td>{{ $item->job_desc }}</td>
                     <td>
-                        <a type="button" class="btn btn-dark" href="/backoffice/about/edit/{{ $about->id }}">Edit</a>
+                        <a type="button" class="btn btn-dark" href="{{ route('about.edit', $about->id) }}">Edit</a>
                     </td>
                 </tr>
             @endforeach
-        </tbody>
+        </tbody>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             p
     </table>
 @endsection

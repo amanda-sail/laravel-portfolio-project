@@ -12,6 +12,7 @@ use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FooterController;
+use App\Http\Controllers\WelcomeController;
 use App\Models\Header;
 use App\Models\Navbar;
 use App\Models\SocialMedia;
@@ -37,22 +38,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    $header = Header::first();
-    $navbar = Navbar::all();
-    $social_media = SocialMedia::all();
-    $hero = Hero::first();
-    $section = SectionIntro::all();
-    $about = About::first();
-    $fact = Fact::first();
-    $skill = Skill::first();
-    $portfolio = Portfolio::first();
-    $testimonial = Testimonial::first();
-    $contact = Contact::first();
-    $footer = Footer::first();
-    return view('welcome', compact('header', 'navbar', 'social_media', 'hero', 'section', 'about', 'fact', 'skill', 'portfolio', 'testimonial', 'contact', 'footer'));
-});
-
+Route::get('/', [WelcomeController::class, 'index'])->name("welcome.index");
 
 // Back Office
 Route::get('/back_office/backoffice', function() {
@@ -78,7 +64,6 @@ Route::get('/back_office/backoffice/hero/edit/{hero}', [HeroController::class, "
 Route::post('/back_office/backoffice/hero/update/{hero}', [HeroController::class, "update"])->name("hero.update");
 
 // Section Intros
-// Route::get('/back_office/backoffice/section', [SectionIntroController::class, "index"])->name("section.index");
 Route::get('/back_office/backoffice/section/edit/{sectionIntro}', [SectionIntroController::class, "edit"])->name("section.edit");
 Route::post('/back_office/backoffice/section/update/{sectionIntro}', [SectionIntroController::class, "update"])->name("section.update");
 
